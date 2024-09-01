@@ -1,0 +1,67 @@
+
+df.describe().style.background_gradient(axis=None , cmap = "Blues" , vmin = 0 , vmax = 9000  )
+
+----------------------------------------------------------------------
+<<Binding>> 
+
+
+interval = [18 , 35 , 75 , 100 , 120]
+label = ["flex" , 'coin' , "2x" , '2mage']
+data['offer2'] = pd.cut(data['MonthlyCharges'] , bins = interval , labels= label)
+
+
+min,max = data['TotalCharges'].agg(['min' , 'max'])
+interval = pd.interval_range(start= min  , freq = 1000 , end = max
+data['offer3'] = pd.cut(data['TotalCharges'] , bins = interval , labels= [])
+
+
+----------------------------------------------------------------------
+<<Encoding>> 
+
+from sklearn.preprocessing import LabelEncoder
+
+gender_le = LabelEncoder()
+df['gender'] = gender_le.fit_transform(df['gender'])
+
+this use to get confusion matrix 
+----------------------------------------------------------------------
+<<Scale>> 
+
+
+normalization:-
+
+from sklearn.preprocessing import RobustScaler , MinMaxScaler
+
+from 0 to 1
+rob = RobustScaler()
+df['MonthlyCharges'] = rob.fit_transform(df[['MonthlyCharges']])
+
+
+
+standraization:-
+
+from sklearn.preprocessing import StandardScaler
+(m=0,v= 1)
+
+scaler = StandardScaler()
+df2['tenure'] = scaler.fit_transform(df2[['tenure']])
+
+
+when have outliers as linearRigresion 
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
